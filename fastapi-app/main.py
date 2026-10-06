@@ -23,8 +23,13 @@ app.add_middleware(
 
 # 配置路由
 app.include_router(api_router)
-# 注册orm
-register_tortoise(app, config=TORTOISE_ORM, add_exception_handlers=True)
+# 注册orm（启动时自动创建表）
+register_tortoise(
+    app,
+    config=TORTOISE_ORM,
+    add_exception_handlers=True,
+    generate_schemas=True,
+)
 # 注册异常处理器
 setup_exceptions(app)
 

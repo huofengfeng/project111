@@ -27,7 +27,7 @@ class Account(BaseModel):
     avatar: str | None = None
 
 
-api_router = APIRouter()
+api_router = APIRouter(prefix="/api")
 
 
 @api_router.post("/login")
